@@ -7,7 +7,7 @@ $(document).ready(function() {
 	  	alert("Geolocation is not supported by this browser.");
 	  }
 	  function getPosition(position){
-			var lat =position.coords.latitude;
+			var lat = position.coords.latitude;
 			var long = position.coords.longitude;
 			console.log(lat,long);
 		}
@@ -18,7 +18,7 @@ $(document).ready(function() {
 	https://api.darksky.net/forecast/[key]/[latitude],[longitude]
 
 	$.ajax({
-		url: 'https://api.darksky.net/forecast/30ba70758a8f4807636a0e9d8a6a8447/37.8267,-122.4233',
+		url: 'https://api.darksky.net/forecast/30ba70758a8f4807636a0e9d8a6a8447/-33.4143,-70.6608',
 		type: 'GET',
 		dataType: 'jsonp',
 	})
@@ -26,8 +26,17 @@ $(document).ready(function() {
 		console.log("success");
 		console.log(data);
 		var temperatura = data.currently.apparentTemperature;
-		console.log(temperatura);
+		var icono = data.currently.icon;
+		var viento = data.currently.windSpeed;
+		var humedad = data.currently.humidity;
+		var uv = data.currently.uvIndex;
+		var presion = data.currently.pressure;
 		$(".grados").append(temperatura);
+		$(".icono").append("<img src='dist/img/"+icono +".png'>");
+		$(".viento").append(viento);
+		$(".humedad").append(humedad);
+		$(".uv").append(uv);
+		$(".presion").append(presion);
 	})
 	.fail(function() {
 		console.log("error");
