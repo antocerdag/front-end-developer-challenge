@@ -12669,7 +12669,7 @@ $(document).ready(function() {
 		$(".humedad").append(humedad+" %");
 		$(".uv").append(uv);
 		$(".presion").append(presion+" hPa");
-
+		//TEMPERATURA DE LA SEMANA
 		data.daily.data.forEach(function(ele){
 			//console.log(ele);
 			var max = ((((ele.apparentTemperatureMax-32) * 5/9).toFixed(1)));
@@ -12679,10 +12679,6 @@ $(document).ready(function() {
 			$(".dias").append("<div class='row'><div class='col-md-6 col-xs-12 text-left'><img class='iconos-semana img-responsive ' src='dist/img/"+icon+".png'><p class='txt-datos-dias'>Monday</p></div><div class='col-md-6 col-xs-12 text-right'><p class='temperatura'>"+max+"º"+" - "+min+"º"+"</p></div></div>");
 
 		});
-		//TEMPERATURA DE LA SEMANA
-		//var cero = 0;
-		//var lunesMax = data.daily.cero.apparentTemperatureMax;
-		//var lunesMin = data.daily.cero.apparentTemperatureMin;
 	})
 	.fail(function() {
 		console.log("error");
@@ -12693,21 +12689,60 @@ $(document).ready(function() {
 
 
 	// API FLICKR
+	var url = "https://api.flickr.com/services/rest/";
+	var key = "asryf546rt5dsg856df32gdr5yhdf";
+	var perPage = 1;
+	var currentPage = 1;
+	var totalPhotos;
+	var totalPages;
+	var extras = "url_m, url_n, url_z, url_c, url_l, url_o";
+	var reqParams;
+	var interval;
+
+function getUserPhotos(user) {
+    reqParams = {
+            "api_key": key,
+            "method": "flickr.people.getPublicPhotos",
+            "user_id": user,
+            "extras": extras,
+            "per_page": perPage,
+            "page": currentPage,
+            "format": "json",
+            "nojsoncallback": 1
+        };
+    $.getJSON(url, reqParams, callBack);
+}
+
+function callBack(data, status) {
+    var photoObj = data.photos;
+    var totalPhotos = photoObj.total;
+    var totalPages = photoObj.pages;
+    listPhotos(photoObj.photo);
+	}
+
+$(function () {
 	$.ajax({
-		url: 'https://api.flickr.com/services/rest/?method=flickr.photos.search&api_key=b352bdbfb32a1ecdb35af15c9ea0c73e&tags=weather&format=json&auth_token=72157686954386546-73575d01ed50b88a&api_sig=cd9e06e56333ae1f7f7b567339286442',
-		type: 'GET',
-		dataType: 'json',
-	})
-	.done(function(data2) {
-		console.log("success");
-		console.log(data2);
-	})
-	.fail(function() {
-		console.log("error");
-	})
-	.always(function() {
-		console.log("complete");
+	    url: "https://api.flickr.com/services/rest/",
+	    data: {
+	        method: "flickr.photos.search",
+	        api_key: "9f57617f1a694b2d02fd4d0474b6357e",
+	        tags: "weather",
+	        format: "json",
+	        nojsoncallback: 1
+	    },
+	    success: function (response) {
+	    console.log(response)
+	        $.each(response.photos.photo, function (index, value) {
+	            //console.log(value);
+	          var url = 'https://farm' + value.farm + '.staticflickr.com/' + value.server + '/' + value.id + '_' + value.secret + '.jpg';
+	          var a = $('<a>').attr({href: url});
+	          var img = $('<img>').attr({src: url});
+	          a.append(img);
+	          $("body").append(a);
+	        });
+	    }
 	});
+})
 
 	// foto irá en el body
 

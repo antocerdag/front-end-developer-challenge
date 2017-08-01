@@ -2,7 +2,14 @@
 	padding:0;
 	margin:0;
 }
-
+body{
+	img{
+		    width: 100%;
+    	position: absolute;
+    	top: 0;
+    	z-index: -3;
+	}
+}
 .contenido-clima{
     margin-top: 7%;
     width: 90%;
@@ -11,9 +18,11 @@
 
 .icono{
 	margin-top: 9%;
+	margin-bottom: 268px;
 	img.img-responsive{
 		width: 27%;
 		margin-left: 36%;
+		z-index: 1;
 	}
 }
 
@@ -27,6 +36,7 @@
 	color:$txt-datos;
 	font-size: 25px;
     font-weight: 200;
+	margin-right: 15%;
 }
 
 
@@ -37,16 +47,20 @@
 }
 
 /* FOOTER */
-footer{
-	background-color: rgba(255, 255, 255, 0.57);
-	width:90%;
-}
 .txt-semana{
 	color: $txt-semana;
-	font-size:18px;
-	margin-top:7%;
-	margin-bottom:7%;
-	margin-left: 12%;
+	font-size: 23px;
+    position: relative;
+    top: 13px;
+}
+footer{
+	background-color: rgba(255, 255, 255, 0.81);
+    width: 90%;
+	height: 66px;
+    margin-left: 5%;
+}
+.boton{
+
 }
 
 
@@ -55,6 +69,7 @@ footer{
 .iconos-semana{
 	width:15%;
 	float: left;
+	z-index: 1;
 }
 
 .txt-datos-dias{
