@@ -25,14 +25,14 @@ $(document).ready(function() {
 	.done(function(data) {
 		console.log("success");
 		console.log(data);
-		var temperatura = data.currently.apparentTemperature;
+		var temperatura = (((data.currently.apparentTemperature-32) * 5/9).toFixed(1));
 		var icono = data.currently.icon;
 		var viento = data.currently.windSpeed;
 		var humedad = data.currently.humidity;
 		var uv = data.currently.uvIndex;
 		var presion = data.currently.pressure;
-		$(".grados").append(temperatura);
-		$(".icono").append("<img src='dist/img/"+icono +".png'>");
+		$(".grados").append(temperatura+"º");
+		$(".icono").append("<img class='img-responsive' src='dist/img/"+icono +".png'>");
 		$(".viento").append(viento+" m/s");
 		$(".humedad").append(humedad+" %");
 		$(".uv").append(uv);
@@ -40,11 +40,11 @@ $(document).ready(function() {
 
 		data.daily.data.forEach(function(ele){
 			//console.log(ele);
-			var max = ele.apparentTemperatureMax;
-			var min = ele.apparentTemperatureMin;
+			var max = ((((ele.apparentTemperatureMax-32) * 5/9).toFixed(1)));
+			var min = ((((ele.apparentTemperatureMin-32) * 5/9).toFixed(1)));
 			var icon = ele.icon;
 			console.log(icon);
-			$(".dias").append("<div class='col-md-6 col-xs-12 text-left'><p class='txt-datos'><img src='dist/img/"+icon+".png'>Monday</p></div><div class='col-md-6 col-xs-12 text-right'><p class='temperatura txt-datos'>"+max+"º"+" - "+min+"º"+"</p></div>");
+			$(".dias").append("<div class='row'><div class='col-md-6 col-xs-12 text-left'><img class='iconos-semana img-responsive ' src='dist/img/"+icon+".png'><p class='txt-datos-dias'>Monday</p></div><div class='col-md-6 col-xs-12 text-right'><p class='temperatura'>"+max+"º"+" - "+min+"º"+"</p></div></div>");
 
 		});
 		//TEMPERATURA DE LA SEMANA

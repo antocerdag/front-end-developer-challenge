@@ -11,8 +11,9 @@
 
 .icono{
 	margin-top: 9%;
-	img{
+	img.img-responsive{
 		width: 27%;
+		margin-left: 36%;
 	}
 }
 
@@ -29,14 +30,44 @@
 }
 
 
+.txt-datos-grados{
+	color:$txt-datos;
+	font-size: 42px;
+    font-weight: 500;
+}
+
 /* FOOTER */
 footer{
 	background-color: rgba(255, 255, 255, 0.57);
-	width:100%;
+	width:90%;
 }
 .txt-semana{
 	color: $txt-semana;
 	font-size:18px;
 	margin-top:7%;
 	margin-bottom:7%;
+	margin-left: 12%;
+}
+
+
+/* SEGUNDA VISTA */ 
+
+.iconos-semana{
+	width:15%;
+	float: left;
+}
+
+.txt-datos-dias{
+	color:$txt-datos;
+	font-size: 25px;
+    font-weight: 200;
+	margin-top: 31px;
+    margin-left: 19%;
+}
+.temperatura{
+	color:$txt-datos;
+	font-size: 25px;
+    font-weight: 200;
+    position: relative;
+    top: -78px;
 }
