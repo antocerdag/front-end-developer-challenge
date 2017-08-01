@@ -6,7 +6,7 @@ var minifyCSS = require('gulp-minify-css');
 var webserver = require('gulp-webserver');
 
 gulp.task('script', function(){
-	gulp.src(['node_modules/jquery/dist/jquery.js', 'node_modules/bootstrap/dist/js/bootstrap.js', 'node_modules/jquery/dist/jquery.js','assets/js/main.js'])
+	gulp.src(['node_modules/jquery/dist/jquery.js', 'node_modules/bootstrap/dist/js/bootstrap.js', 'node_modules/jquery/dist/jquery.js','assets/js/*.js'])
 	.pipe(concat('script.js'))
 	.pipe(gulp.dest('dist/js/'));
 });
@@ -20,7 +20,7 @@ gulp.task('style', function(){
 });
 
 gulp.task('webserver', function(){
-	gulp.src('../front-end-developer-challenge/')
+	gulp.src('../front-end-developer-challenge')
 	.pipe(webserver({
 		fallback: 'index.html',
 		livereload: true,

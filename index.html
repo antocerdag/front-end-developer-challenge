@@ -3,9 +3,72 @@
 <head>
 	<meta charset="UTF-8">
 	<title>Dark Sky Weather</title>
-	<link rel="stylesheet" href="path/to/font-awesome/css/font-awesome.min.css">
+	<link href="path/to/font-awesome/css/font-awesome.min.css">
+	<link rel="stylesheet" href="dist/css/style.min.css">
 </head>
 <body>
-	
+<section id="demo" onLoad="" class="contenido-clima">
+	<div class="container">
+		<div class="row">
+			<div class="col-md-12 col-xs-12 text-center">
+				<div class="icono">
+					<img src="dist/img/1498814590_cloud_snow.png" alt="">
+				</div>
+			</div>
+		</div>
+		<div class="row">
+			<div class="col-md-12 col-xs-12 text-center">
+				<p class="grados"></p>
+			</div>
+		</div>
+		<!-- VIENTO -->
+		<div class="row">
+			<div class="col-md-6 col-xs-12 text-left">
+				<p class="txt-datos">Wind</p>
+			</div>
+			<div class="col-md-6 col-xs-12 text-right">
+				<p class="viento"></p>
+			</div>
+		</div>
+		<!-- HUMEDAD -->
+		<div class="row">
+			<div class="col-md-6 col-xs-12 text-left">
+				<p class="txt-datos">Humidity</p>
+			</div>
+			<div class="col-md-6 col-xs-12 text-right">
+				<p class="humedad"></p>
+			</div>
+		</div>
+		<!-- UV INDEX -->
+		<div class="row">
+			<div class="col-md-6 col-xs-12 text-left">
+				<p class="txt-datos">UV Index</p>
+			</div>
+			<div class="col-md-6 col-xs-12 text-right">
+				<p class="uv"></p>
+			</div>
+		</div>
+		<!-- PRESIÓN -->
+		<div class="row">
+			<div class="col-md-6 col-xs-12 text-left">
+				<p class="txt-datos">Pressure</p>
+			</div>
+			<div class="col-md-6 col-xs-12 text-right">
+				<p class="presion"></p>
+			</div>
+		</div>
+	</div>
+</section>
+<footer>
+	<div class="container">
+		<div class="row">
+			<div class="col-md-12 col-xs-12 text-center">
+				<p class="txt-semana">PREDICCION DE LA SEMANA</p>
+			</div>
+		</div>
+	</div>
+</footer>
+	<script src="https://maps.googleapis.com/maps/api/js?key=AIzaSyBheXBpzcGUWs2snS33NskqmuZO4IJ8Y5Q&libraries=places,geometry"></script>
+	<script type="text/javascript" src="dist/js/script.js"></script>
 </body>
 </html>

@@ -1,1 +1,42 @@
-_bases.scss
+*{
+	padding:0;
+	margin:0;
+}
+
+.contenido-clima{
+    margin-top: 7%;
+    width: 100%;
+    background-color: rgba(0, 0, 0, 0.44);
+}
+
+.icono{
+	margin-top: 9%;
+	img{
+		width: 27%;
+	}
+}
+
+.grados{
+	font-size: 20px;
+    color: white;
+    font-weight: 400;
+}
+
+.txt-datos{
+	color:$txt-datos;
+	font-size: 25px;
+    font-weight: 200;
+}
+
+
+/* FOOTER */
+footer{
+	background-color: rgba(255, 255, 255, 0.57);
+	width:100%;
+}
+.txt-semana{
+	color: $txt-semana;
+	font-size:18px;
+	margin-top:7%;
+	margin-bottom:7%;
+}
