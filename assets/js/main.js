@@ -33,10 +33,24 @@ $(document).ready(function() {
 		var presion = data.currently.pressure;
 		$(".grados").append(temperatura);
 		$(".icono").append("<img src='dist/img/"+icono +".png'>");
-		$(".viento").append(viento);
-		$(".humedad").append(humedad);
+		$(".viento").append(viento+" m/s");
+		$(".humedad").append(humedad+" %");
 		$(".uv").append(uv);
-		$(".presion").append(presion);
+		$(".presion").append(presion+" hPa");
+
+		data.daily.data.forEach(function(ele){
+			//console.log(ele);
+			var max = ele.apparentTemperatureMax;
+			var min = ele.apparentTemperatureMin;
+			var icon = ele.icon;
+			console.log(icon);
+			$(".dias").append("<div class='col-md-6 col-xs-12 text-left'><p class='txt-datos'><img src='dist/img/"+icon+".png'>Monday</p></div><div class='col-md-6 col-xs-12 text-right'><p class='temperatura txt-datos'>"+max+"º"+" - "+min+"º"+"</p></div>");
+
+		});
+		//TEMPERATURA DE LA SEMANA
+		//var cero = 0;
+		//var lunesMax = data.daily.cero.apparentTemperatureMax;
+		//var lunesMin = data.daily.cero.apparentTemperatureMin;
 	})
 	.fail(function() {
 		console.log("error");
