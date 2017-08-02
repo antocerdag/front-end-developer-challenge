@@ -73,10 +73,8 @@ $(function () {
 	        $.each(response.photos.photo, function (index, value) {
 	            //console.log(value);
 	          var url = 'https://farm' + value.farm + '.staticflickr.com/' + value.server + '/' + value.id + '_' + value.secret + '.jpg';
-	          var a = $('<a>').attr({href: url});
 	          var img = $('<img>').attr({src: url});
-	          a.append(img);
-	          $("body").append(a);
+	          $("body").append(img);
 	        });
 	    }
 	});
