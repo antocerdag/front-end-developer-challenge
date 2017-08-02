@@ -44,7 +44,7 @@ $(document).ready(function() {
 			var min = ((((ele.apparentTemperatureMin-32) * 5/9).toFixed(1)));
 			var icon = ele.icon;
 			console.log(icon);
-			$(".dias").append("<div class='row'><div class='col-md-6 col-xs-6 text-left'><img class='iconos-semana img-responsive ' src='dist/img/"+icon+".png'><p class='txt-datos-dias'>Monday</p></div><div class='col-md-6 col-xs-12 text-right'><p class='temperatura'>"+max+"º"+" - "+min+"º"+"</p></div></div>");
+			$(".dias").append("<div class='row linea-dias'><div class='col-md-6 col-xs-6 text-left'><img class='iconos-semana img-responsive ' src='dist/img/"+icon+".png'><p class='txt-datos-dias'>Monday</p></div><div class='col-md-6 col-xs-6 text-right'><p class='temperatura'>"+max+"º"+" - "+min+"º"+"</p></div></div>");
 
 		});
 	})
@@ -57,36 +57,6 @@ $(document).ready(function() {
 
 
 	// API FLICKR
-	var url = "https://api.flickr.com/services/rest/";
-	var key = "asryf546rt5dsg856df32gdr5yhdf";
-	var perPage = 1;
-	var currentPage = 1;
-	var totalPhotos;
-	var totalPages;
-	var extras = "url_m, url_n, url_z, url_c, url_l, url_o";
-	var reqParams;
-	var interval;
-
-function getUserPhotos(user) {
-    reqParams = {
-            "api_key": key,
-            "method": "flickr.people.getPublicPhotos",
-            "user_id": user,
-            "extras": extras,
-            "per_page": perPage,
-            "page": currentPage,
-            "format": "json",
-            "nojsoncallback": 1
-        };
-    $.getJSON(url, reqParams, callBack);
-}
-
-function callBack(data, status) {
-    var photoObj = data.photos;
-    var totalPhotos = photoObj.total;
-    var totalPages = photoObj.pages;
-    listPhotos(photoObj.photo);
-	}
 
 $(function () {
 	$.ajax({
